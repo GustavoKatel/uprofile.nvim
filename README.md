@@ -43,6 +43,20 @@ packer.startup(function()
             work = "marko-cerovac/material.nvim",
         })
     })
+
+    -- the above is similar to this:
+    uprofile.with_profile_fn("personal", function()
+        use({ "navarasu/onedark.nvim" })
+    end)
+
+    uprofile.with_profile_fn("work", function()
+        use({ "marko-cerovac/material.nvim"})
+    end)
+
+
+    -- or even:
+    user_profile.with_profile_fn("personal", use, { "navarasu/onedark.nvim" })
+    user_profile.with_profile_fn("work", use, { "marko-cerovac/material.nvim"})
 end)
 ```
 
@@ -51,8 +65,8 @@ Another example is to conditionally enable different lsp servers based on the pr
 ```lua
 local servers = user_profile.with_profile_table({
     -- default profile is a fallback, if there is no match, `default` is returned
-	default = { "efm", "sumneko_lua", "tsserver", "eslint", "gopls", "clangd", "rust_analyzer", "pyright" },
-	work = { "efm", "sumneko_lua", "tsserver", "eslint" },
+    default = { "efm", "sumneko_lua", "tsserver", "eslint", "gopls", "clangd", "rust_analyzer", "pyright" },
+    work = { "efm", "sumneko_lua", "tsserver", "eslint" },
 })
 ```
 
