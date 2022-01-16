@@ -33,8 +33,8 @@ uprofile.setup()
 
 -- Install Plugins
 packer.startup(function()
-	local use = use or use
-	use({ "wbthomason/packer.nvim" }) -- updates package manager
+    local use = use or use
+    use({ "wbthomason/packer.nvim" }) -- updates package manager
 
     -- use onedark for personal and material for work
     use({ 
